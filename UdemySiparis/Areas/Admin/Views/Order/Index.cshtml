@@ -1,0 +1,52 @@
+﻿@model IEnumerable<OrderProduct>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h2>Order List</h2>
+        </div>
+        <div class="col-6">
+           
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-bordered table-striped my-2">
+            <thead>
+                <tr>
+                    <th width="10px">                        
+                        Order Id
+                    </th>
+                    <th>
+                        Full Name
+                    </th>
+                    <th>
+                        Price
+                    </th>       
+                     <th>
+                        Status
+                    </th>  
+                    <th>
+                        
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var orderProduct in Model)
+                {
+                    <tr>
+                        <td>@orderProduct.Id</td>
+                        <td>@orderProduct.Name</td>
+                        <td>@orderProduct.OrderPrice</td>
+                        <td>@orderProduct.OrderStatus</td>
+                        <td>
+                            <a asp-area="Admin" asp-controller="Order" asp-action="Details" asp-route-id="@orderProduct.Id" class="btn btn-primary">
+                                Details
+                            </a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
